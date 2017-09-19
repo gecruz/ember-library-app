@@ -1,8 +1,5 @@
 # library-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -10,7 +7,6 @@ You will need the following things properly installed on your computer.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM)
 * [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
@@ -23,10 +19,6 @@ You will need the following things properly installed on your computer.
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
 ### Running Tests
 
 * `ember test`
@@ -37,9 +29,44 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
+### Setup a server on Firebase
 
-Specify what it takes to deploy your app.
+Firebase is a server and API service. Very easy to use. http://firebase.google.com
+
+1. Create an account.
+2. You can read the latest Readme on EmberFire website: https://github.com/firebase/emberfire (You can find the earlier version’s guide and help section here: https://www.firebase.com/docs/web/libraries/ember/guide.html)
+3. First, run the following command in your terminal: ember install emberfire
+4. You will see instructions in the console. We have to manually add a few lines to our configuration file. Copy and paste those lines in config/environment.js. (Please note you may have to update a few single quotes to double-quotes in contentSecurityPolicy, check my code snippet below, double-quotes are corrected there.)
+5. Go back to Firebase and create an app there. When your new firebase database ready, click on the purple icon on Overview page (“Add Firebase to your web app”). Check those params in the popup window (“apiKey”, “authDomain”, etc.) and copy-paste the values in your config/environment.js file in your Ember application accordingly.
+
+```javascript
+// config/environment.js
+
+module.exports = function(environment) {
+  var ENV = {
+    modulePrefix: 'library-app',
+    environment: environment,
+    baseURL: '/',
+    locationType: 'auto',
+
+    firebase: {
+      apiKey: 'xyz',
+      authDomain: 'YOUR-FIREBASE-APP.firebaseapp.com',
+      databaseURL: 'https://YOUR-FIREBASE-APP.firebaseio.com',
+      storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
+      messagingSenderId: '1234'
+    },
+
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
+    EmberENV: {
+      FEATURES: { ...
+```
 
 ## Further Reading / Useful Links
 
