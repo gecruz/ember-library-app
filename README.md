@@ -27,7 +27,7 @@ You will need the following things properly installed on your computer.
 ### Building
 
 * `ember build` (development)
-* `ember build --environment production` (production)
+* `ember build --prod` (production)
 
 ### Setup a server on Firebase
 
@@ -35,7 +35,8 @@ Firebase is a server and API service. Very easy to use. http://firebase.google.c
 
 1. Create an account.
 2. You can read the latest Readme on EmberFire website: https://github.com/firebase/emberfire (You can find the earlier version’s guide and help section here: https://www.firebase.com/docs/web/libraries/ember/guide.html)
-3. First, run the following command in your terminal: ember install emberfire
+3. First, run the following command in your terminal:
+* `ember install emberfire`
 4. You will see instructions in the console. We have to manually add a few lines to our configuration file. Copy and paste those lines in config/environment.js. (Please note you may have to update a few single quotes to double-quotes in contentSecurityPolicy, check my code snippet below, double-quotes are corrected there.)
 5. Go back to Firebase and create an app there. When your new firebase database ready, click on the purple icon on Overview page (“Add Firebase to your web app”). Check those params in the popup window (“apiKey”, “authDomain”, etc.) and copy-paste the values in your config/environment.js file in your Ember application accordingly.
 
