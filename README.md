@@ -68,6 +68,13 @@ module.exports = function(environment) {
       FEATURES: { ...
 ```
 
+### Deploy your app using Firebase Hosting service
+
+* `npm install -g firebase-tools`
+* `ember build --prod`
+* `firebase login`
+* `firebase init`
+
 ## Further Reading / Useful Links
 
 * [ember.js](https://emberjs.com/)
