@@ -10,7 +10,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone`
 * `cd library-app`
 * `npm install`
 
@@ -74,6 +74,13 @@ module.exports = function(environment) {
 * `ember build --prod`
 * `firebase login`
 * `firebase init`
+
+And deploy:
+
+* `firebase deploy`
+* `firebase open`
+
+Select Hosting: Deployed Site
 
 ## Further Reading / Useful Links
 
