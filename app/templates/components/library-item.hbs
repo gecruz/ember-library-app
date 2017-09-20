@@ -7,7 +7,13 @@
     <p>Address: {{item.address}}</p>
     <p>Phone: {{item.phone}}</p>
   </div>
-  <div class="panel-footer text-right">
-    {{yield}}
-  </div>
+  <div class="panel-footer">
+      Number of books:
+      <span class="text-left badge">
+        {{badge}}
+      </span>
+      <span class="pull-right">
+        {{yield}}
+      </span>
+    </div>
 </div>
