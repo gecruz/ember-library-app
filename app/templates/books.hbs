@@ -5,12 +5,16 @@
   <thead>
     <tr>
       <th>
-        Name
-        <br><small class="small not-bold">(Click on title for editing)</small>
+        Title
+        <br><small class="small not-bold">(Click on the title for editing)</small>
       </th>
       <th>
         Author
-        <br><small class="small not-bold">(Click on author for editing)</small>
+        <br><small class="small not-bold">(Click on the name for editing)</small>
+      </th>
+      <th>
+        Library
+        <br><small class="small not-bold">(Click on the name for editing)</small>
       </th>
     </tr>
   </thead>
@@ -46,6 +50,22 @@
 
           {{else}}
             <span {{action 'editAuthor' book}}>{{book.author.name}}</span>
+          {{/if}}
+        </td>
+        <td>
+          {{#if book.isLibraryEditing}}
+            <div class="col-sm-8">
+              {{library-select
+                book=book
+                libraries=libraries
+                default=book.library
+                action='saveLibrary'}}
+            </div>
+
+            <button class="btn btn-danger" {{action 'cancelLibraryEdit' book}}>Cancel</button>
+
+          {{else}}
+            <span {{action 'editLibrary' book}}>{{book.library.name}}</span>
           {{/if}}
         </td>
       </tr>
